@@ -1,0 +1,16 @@
+body {
+    background: url(../images/Webp.net-resizeimage\ 1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+     text-align: center;
+    
+}
+
+h2 {
+    text-align: center;
+}
