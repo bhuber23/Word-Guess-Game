@@ -68,9 +68,33 @@ function blankImage() {
     else if (randomPokemon === pokemon[2]){
         document.getElementById("image").src = "./assets/images/BlankSeel.png";
     }
-
+    //Mewtwo
     else if (randomPokemon === pokemon[3]){
         document.getElementById("image").src = "./assets/images/BlankMewtwo.jpg";
+    }
+    //Dragonair
+    else if (randomPokemon === pokemon[4]){
+        document.getElementById("image").src = "./assets/images/BlankDragonair.png";
+    }
+    //Togepi
+    else if (randomPokemon === pokemon[5]){
+        document.getElementById("image").src = "./assets/images/BlankTogepi.png";
+    }
+    //Charmander
+    else if (randomPokemon === pokemon[6]){
+        document.getElementById("image").src = "./assets/images/BlankCharmander.jpeg";
+    }
+    //Charizard
+    else if (randomPokemon === pokemon[7]){
+        document.getElementById("image").src = "./assets/images/BlankCharizard.jpg";
+    }
+    //Psyduck
+    else if (randomPokemon === pokemon[8]){
+        document.getElementById("image").src = "./assets/images/BlankPsyduck.png";
+    }
+    //Clefairy
+    else if (randomPokemon === pokemon[9]){
+        document.getElementById("image").src = "./assets/images/BlankClefairy.jpg";
     }
     
 }
@@ -127,6 +151,28 @@ function endGame() {
         if (randomPokemon === pokemon[2]) {
             document.getElementById("image").src = "./assets/images/Seel.png";
         }
+        if (randomPokemon === pokemon[3]) {
+            document.getElementById("image").src = "./assets/images/Mewtwo.jpg";
+        }
+        if (randomPokemon === pokemon[4]) {
+            document.getElementById("image").src = "./assets/images/Dragonair.png";
+        }
+        if (randomPokemon === pokemon[5]) {
+            document.getElementById("image").src = "./assets/images/Togepi.png";
+        }
+        if (randomPokemon === pokemon[6]) {
+            document.getElementById("image").src = "./assets/images/Charmander.jpeg";
+        }
+        if (randomPokemon === pokemon[7]) {
+            document.getElementById("image").src = "./assets/images/Charizard.png";
+        }
+        if (randomPokemon === pokemon[8]) {
+            document.getElementById("image").src = "./assets/images/Psyduck.jpg";
+        }
+        if (randomPokemon === pokemon[9]) {
+            document.getElementById("image").src = "./assets/images/Clefairy.png";
+        }
+
        
         document.getElementById("wins-text").innerHTML = " " + wins;
         
