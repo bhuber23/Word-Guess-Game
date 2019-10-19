@@ -99,14 +99,15 @@ function endGame() {
     if (lettersInPokemon.toString() == blanksWithGuesses.toString()) {
         wins++;
         if (randomPokemon === pokemon[0]) {
-            document.getElementById("image").src= "./assets/images/Squirtle.jpg";
+            document.getElementById("image").src= "./assets/images/Squirtle.png";
         }
         if (randomPokemon === pokemon[1]) {
             document.getElementById("image").src = "./assets/images/Pikachu.jpg";
         }
         if (randomPokemon === pokemon[2]) {
-            document.getElementById("image").src = "./assets/images/Seel.jpg";
+            document.getElementById("image").src = "./assets/images/Seel.png";
         }
+       
         reset()
         document.getElementById("wins-text").innerHTML = " " + wins;
         
@@ -117,7 +118,7 @@ function endGame() {
         reset()
         document.getElementById("losses-text").innerHTML = " " + losses;
     }
-
+    document.getElementById("whos-that-text").innerHTML = " " + blanksWithGuesses.join(" ");
     document.getElementById("guesses-remaining-text").innerHTML = " " + guessesLeft;
 }
 
