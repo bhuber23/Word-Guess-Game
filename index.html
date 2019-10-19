@@ -9,10 +9,14 @@
     <body>
         <h1><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/191015/da08c929b6c3083f862ea86f3e5f464f.png" alt="pokemon-font" border="0"></a></h1>
         <h2><a href="https://fontmeme.com/pokemon-font/"><img src="https://fontmeme.com/permalink/191015/defa9fa0cd227b7afe8794c7919df5a6.png" alt="pokemon-font" border="0"></a></h2>
-        <img id="image" src="assets/images/Whos-That.png">
+        
         
 
         <div class="container">
+                <div id="image-container">
+                        <img id="image" src="assets/images/Whos-That.png">
+                </div>
+        <div id="content-container">
             <p>Press any key to get started!</p>
             <p id="the word">Who's That Pokemon?</p>
             <p id="whos-that-text"> </p>
@@ -24,7 +28,8 @@
             <p id="wins-text">  </p>
             <p id="losses">Losses:</p>
             <p id="losses-text">  </p>
-
+            <button id="reset">Press to Play Again</button>
+        </div>
         </div>
 
     <script src="assets/javascript/game.js"></script>

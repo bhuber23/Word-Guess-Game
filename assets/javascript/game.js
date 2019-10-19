@@ -2,17 +2,26 @@
 var pokemon = [
     "Squirtle",
     "Pikachu",
-    "Seel"
+    "Seel",
+    "Mewtwo",
+    "Dragonair",
+    "Togepi",
+    "Charmander",
+    "Charizard",
+    "Psyduck",
+    "Clefairy",
 ];
 
 var randomPokemon = "";
 var lettersInPokemon = []
 var blanks = 0;
 var blanksWithGuesses = [];
-var wrongGuess = [];
+var lettersGuessed = [];
+
 
 var wins = 0;
-var guessesLeft = 10;
+var losses = 0;
+var guessesLeft = 6;
 
 //Functions
 
@@ -36,6 +45,10 @@ function game() {
     console.log(blanks);
     
     blankImage();
+
+    document.getElementById("reset").onclick = function() {
+        reset();
+    }
 }
 
 //Function to set a blank image to be guessed
@@ -55,14 +68,18 @@ function blankImage() {
     else if (randomPokemon === pokemon[2]){
         document.getElementById("image").src = "./assets/images/BlankSeel.png";
     }
+
+    else if (randomPokemon === pokemon[3]){
+        document.getElementById("image").src = "./assets/images/BlankMewtwo.jpg";
+    }
     
 }
 
 
 //Reset function for when game is won/lost
 function reset() {
-    guessesLeft = 10;
-    wrongGuess = [];
+    guessesLeft = 6;
+    lettersGuessed = [];
     blanksWithGuesses = [];
     game()
 }
@@ -71,33 +88,36 @@ function reset() {
 
 function checkGuess(letter) {
     var letterInGuess = false;
-    for (var i=0; i < blanks; i++) {
-        if (randomPokemon[i] == letter) {
-            letterInGuess = true;
-        }
-    }
+    if (!lettersGuessed.includes(letter)){
 
-    if (letterInGuess) {
-        for (var i = 0; i < blanks; i++) {
-            if (randomPokemon[i] == letter) {
-                blanksWithGuesses[i] = letter;
+        for (var i=0; i < blanks; i++) {
+            if (randomPokemon[i].toLowerCase() == letter) {
+                letterInGuess = true;
             }
         }
-    }
 
-    else {
-        wrongGuess.push(letter);
-        guessesLeft--;
-    }
-}
+        if (letterInGuess) {
+            for (var i = 0; i < blanks; i++) {
+                if (randomPokemon[i].toLowerCase() == letter) {
+                    blanksWithGuesses[i] = letter;
+                }
+            }
+        }
+
+        else {
+            lettersGuessed.push(letter);
+            guessesLeft--;
+        }
+}}
 console.log(checkGuess);
 console.log(blanksWithGuesses);
 
 //Wins and losses functions - show full Pokemon image
 
 function endGame() {
-    if (lettersInPokemon.toString() == blanksWithGuesses.toString()) {
+    if (lettersInPokemon.toString().toLowerCase() == blanksWithGuesses.toString()) {
         wins++;
+        document.getElementById("whos-that-text").innerHTML = " " + blanksWithGuesses.join(" ");
         if (randomPokemon === pokemon[0]) {
             document.getElementById("image").src= "./assets/images/Squirtle.png";
         }
@@ -108,15 +128,14 @@ function endGame() {
             document.getElementById("image").src = "./assets/images/Seel.png";
         }
        
-        reset()
         document.getElementById("wins-text").innerHTML = " " + wins;
         
     }
 
     else if (guessesLeft === 0) {
         losses++;
-        reset()
         document.getElementById("losses-text").innerHTML = " " + losses;
+        reset();
     }
     document.getElementById("whos-that-text").innerHTML = " " + blanksWithGuesses.join(" ");
     document.getElementById("guesses-remaining-text").innerHTML = " " + guessesLeft;
@@ -127,13 +146,13 @@ console.log(endGame);
 //Calling the function, adding functions to check which keys are pressed
 game()
 
-document.onkeyup = function (event) {
+document.onkeyup = function(event) {
     var letter = event.key.toLowerCase();
     checkGuess(letter);
     endGame();
 
     console.log(letter);
 
-    document.getElementById("letters-guessed-text").innerHTML = " " + wrongGuess.join(" ");
+    document.getElementById("letters-guessed-text").innerHTML = " " + lettersGuessed.join(" ");
 }
 
