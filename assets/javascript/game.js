@@ -18,7 +18,7 @@ var guessesLeft = 10;
 
 
 //Global function
-function Game() {
+function game() {
     //Select random Pokemon word
     randomPokemon = pokemon[Math.floor(Math.random() * pokemon.length)];
     lettersInPokemon = randomPokemon.split("");
@@ -34,33 +34,37 @@ function Game() {
     console.log(randomPokemon);
     console.log(lettersInPokemon);
     console.log(blanks);
+    
+    blankImage();
 }
 
 //Function to set a blank image to be guessed
 function blankImage() {
     //Squirtle
     if (randomPokemon === pokemon[0]) {
-        document.getElementById(".image").src = "./assets/images/BlankSquirtle.jpg";
+        document.getElementById("image").src = "./assets/images/BlankSquirtle.jpg";
     }
+    
 
     //Pikachu
     else if (randomPokemon === pokemon[1]) {
-        document.getElementById(".image").src = "./assets/images/BlankPikachu.jpg";
+        document.getElementById("image").src = "./assets/images/BlankPikachu.jpg";
     }
 
     //Seel
     else if (randomPokemon === pokemon[2]){
-        document.getElementById(".image").src = "./assets/images/BlankSeel.jpg";
+        document.getElementById("image").src = "./assets/images/BlankSeel.png";
     }
-
+    
 }
+
 
 //Reset function for when game is won/lost
 function reset() {
     guessesLeft = 10;
     wrongGuess = [];
     blanksWithGuesses = [];
-    Game()
+    game()
 }
 
 //Functions to determine letters in the Pokemon chosen
@@ -86,6 +90,8 @@ function checkGuess(letter) {
         guessesLeft--;
     }
 }
+console.log(checkGuess);
+console.log(blanksWithGuesses);
 
 //Wins and losses functions - show full Pokemon image
 
@@ -102,23 +108,30 @@ function endGame() {
             document.getElementById("image").src = "./assets/images/Seel.jpg";
         }
         reset()
+        document.getElementById("wins-text").innerHTML = " " + wins;
+        
     }
 
     else if (guessesLeft === 0) {
         losses++;
         reset()
+        document.getElementById("losses-text").innerHTML = " " + losses;
     }
+
+    document.getElementById("guesses-remaining-text").innerHTML = " " + guessesLeft;
 }
 
+console.log(endGame);
+
 //Calling the function, adding functions to check which keys are pressed
-Game()
+game()
 
 document.onkeyup = function (event) {
-    var guesses = event.key.toLowerCase();
-    checkGuess(guesses);
+    var letter = event.key.toLowerCase();
+    checkGuess(letter);
     endGame();
 
-    console.log(guesses);
+    console.log(letter);
 
     document.getElementById("letters-guessed-text").innerHTML = " " + wrongGuess.join(" ");
 }

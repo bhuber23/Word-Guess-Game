@@ -16,10 +16,10 @@ h2 {
 }
 
 #image {
-    height: 200px;
-    width: 200px;
-    margin: 20px 0 20px 50px;
-
+    height: 300px;
+    width: 300px;
+    margin: 40px 0 20px 150px;
+    
 }
 
 p {
@@ -28,4 +28,6 @@ p {
     color: blue;
     font-weight: bold;
     text-align: center;
+    margin: 20px;
 }
+
