@@ -108,6 +108,56 @@ function reset() {
     game()
 }
 
+//Sound function/variables
+var sSound = document.getElementById("squirtle");
+var pikaSound = document.getElementById("pikachu");
+var seelSound = document.getElementById("seel");
+var mSound = document.getElementById("mewtwo");
+var dSound = document.getElementById("dragonair");
+var tSound = document.getElementById("togepi");
+var charmanderSound = document.getElementById("charmander");
+var charizardSound = document.getElementById("charizard");
+var psyduckSound = document.getElementById("psyduck");
+var cSound = document.getElementById("clefairy");
+
+
+function aud() {
+    if (randomPokemon === pokemon[0]) {
+        sSound.play();
+    }
+
+    else if (randomPokemon === pokemon[1]) {
+        pikaSound.play();
+    }
+
+    else if (randomPokemon === pokemon[2]) {
+        seelSound.play();
+    }
+
+    else if (randomPokemon === pokemon[3]) {
+        mSound.play();
+    }
+    else if (randomPokemon === pokemon[4]) {
+        dSound.play();
+    }
+    else if (randomPokemon === pokemon[5]) {
+        tSound.play();
+    }
+    else if (randomPokemon === pokemon[6]) {
+        charmanderSound.play();
+    }
+    else if (randomPokemon === pokemon[7]) {
+        charizardSound.play();
+    }
+    else if (randomPokemon === pokemon[8]) {
+        psyduckSound.play();
+    }
+    else if (randomPokemon === pokemon[9]) {
+        cSound.play();
+    }
+    
+}
+
 //Functions to determine letters in the Pokemon chosen
 
 function checkGuess(letter) {
@@ -143,33 +193,44 @@ function endGame() {
         wins++;
         document.getElementById("whos-that-text").innerHTML = " " + blanksWithGuesses.join(" ");
         if (randomPokemon === pokemon[0]) {
+            aud();
             document.getElementById("image").src= "./assets/images/Squirtle.png";
+            document.getElementById()
         }
         if (randomPokemon === pokemon[1]) {
+            aud();
             document.getElementById("image").src = "./assets/images/Pikachu.jpg";
         }
         if (randomPokemon === pokemon[2]) {
+            aud();       
             document.getElementById("image").src = "./assets/images/Seel.png";
         }
         if (randomPokemon === pokemon[3]) {
+            aud();
             document.getElementById("image").src = "./assets/images/Mewtwo.jpg";
         }
         if (randomPokemon === pokemon[4]) {
+            aud();
             document.getElementById("image").src = "./assets/images/Dragonair.png";
         }
         if (randomPokemon === pokemon[5]) {
+            aud();
             document.getElementById("image").src = "./assets/images/Togepi.png";
         }
         if (randomPokemon === pokemon[6]) {
+            aud();
             document.getElementById("image").src = "./assets/images/Charmander.jpeg";
         }
         if (randomPokemon === pokemon[7]) {
+            aud();
             document.getElementById("image").src = "./assets/images/Charizard.png";
         }
         if (randomPokemon === pokemon[8]) {
+            aud();
             document.getElementById("image").src = "./assets/images/Psyduck.jpg";
         }
         if (randomPokemon === pokemon[9]) {
+            aud();
             document.getElementById("image").src = "./assets/images/Clefairy.png";
         }
 
